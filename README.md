@@ -1,5 +1,5 @@
 # Isometric Map With Depth
-This project shows how to implement an isometric game where the tiles can reside at different height levels.
+Demonstrates how to implement an isometric game where the tiles can reside at different height levels. Inspired by my ongoing [port](http://https://github.com/KINGTUT10101/LoveCytopia "port") of Cytopia to LOVE2D.
 
 
 ### Features
