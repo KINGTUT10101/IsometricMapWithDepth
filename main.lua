@@ -6,26 +6,26 @@ love.graphics.setLineStyle ("smooth")
 local map = {}
 local mapSize = 32
 
-local tileImage = love.graphics.newImage ("tileImage.png")
-local tileW = 32
-local tileH = 16
+local tileImage = love.graphics.newImage ("tileImage.png") -- Loads the image
+local tileW = 32 -- Image width
+local tileH = 16 -- Image height
 
-local mouseX, mouseY
-local mapX, mapY = -1, -1
+local mouseX, mouseY -- Current mouse screen position
+local mapX, mapY = -1, -1 -- Current map position
 
-local heightMult = 8
-local maxHeight = 9
-local minHeight = 0
-local belowOffset = math.ceil (maxHeight / (tileH / heightMult))
-local aboveOffset = math.floor (minHeight / (tileH / heightMult))
+local heightMult = 8 -- Height (depth) multiplier for the tiles
+local maxHeight = 9 -- Maximum tile height
+local minHeight = 0 -- Minimum tile height
+local belowOffset = math.ceil (maxHeight / (tileH / heightMult)) -- Used to finds the starting map position in the coord translation algorithm
+local aboveOffset = math.floor (minHeight / (tileH / heightMult)) -- Used to finds the ending map position in the coord translation algorithm
 
 
 function love.load ()
-    -- Initializes the map table with a bunch of tiles with heights of 0
+    -- Initializes the map table and sets all tiles to the minimum height
     for i = 1, mapSize do
         map[i] = {}
         for j = 1, mapSize do
-            map[i][j] = 0
+            map[i][j] = minHeight
         end
     end
 end
@@ -94,6 +94,7 @@ end
 
 
 function love.draw ()
+    -- Renders the map
     for i = 1, mapSize do
         for j = 1, mapSize do
             local screenX = (i - j) * (tileW / 2) -- Formula for the screen's x position
@@ -102,6 +103,7 @@ function love.draw ()
         end
     end
 
+    -- Prints some debug info to the screen
     love.graphics.setColor (1, 1, 1, 1)
     love.graphics.print ("Mouse Coords: " .. mouseX .. ", " .. mouseY, 650, 20)
     love.graphics.print ("3D Map Coords: " .. mapX .. ", " .. mapY, 650, 40)
@@ -110,12 +112,12 @@ end
 
 
 function love.keypressed (key)
-    -- Resets the map
+    -- Resets the map by setting every tile back to the minimum height
     if key == "r" then
         for i = 1, mapSize do
             map[i] = {}
             for j = 1, mapSize do
-                map[i][j] = 0
+                map[i][j] = minHeight
             end
         end
     end
