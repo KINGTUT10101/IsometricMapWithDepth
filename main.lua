@@ -4,7 +4,7 @@ love.graphics.setLineStyle ("smooth")
 
 -- Declares the local variables
 local map = {}
-local mapSize = 32
+local mapSize = 32 -- Max size of the isometric map
 
 local tileImage = love.graphics.newImage ("tileImage.png") -- Loads the image
 local tileW = 32 -- Image width
