@@ -15,7 +15,6 @@ Demonstrates how to implement an isometric game where the tiles can reside at di
 - This project uses the LOVE2D framework and Lua. If you want to edit the program, it's recommended that you look [here](https://love2d.org/wiki/Getting_Started "here") first
 - EXE and LOVE files are provided in the [releases](https://github.com/KINGTUT10101/IsometricMapWithDepth/releases "releases") section for your convenience
 - Feel free to raise [issues](https://github.com/KINGTUT10101/IsometricMapWithDepth/issues "issues") if you find any problems
-- You are free to reuse this project and code as you wish
 
 
 ![](https://github.com/KINGTUT10101/IsometricMapWithDepth/blob/master/thumbnail.png)
